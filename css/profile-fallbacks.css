@@ -1,0 +1,82 @@
+/**
+ * profile-fallbacks.css
+ * Estilos para los fallbacks de imágenes de perfil cuando fallan en cargar
+ */
+
+/* Contenedor base para fallbacks de imágenes de perfil */
+.profile-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    color: white;
+    font-weight: 600;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    text-align: center;
+    line-height: 1;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    user-select: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Variaciones de color para diferentes perfiles */
+.profile-fallback[data-profile="manuelbrito"] {
+    background-color: #4f46e5; /* Indigo */
+}
+
+.profile-fallback[data-profile="nathalysantana"] {
+    background-color: #7c3aed; /* Violeta */
+}
+
+.profile-fallback[data-profile="juancarlosmendes"] {
+    background-color: #0891b2; /* Cyan */
+}
+
+/* Fallback genérico para perfiles no reconocidos */
+.profile-fallback:not([data-profile]) {
+    background-color: #6b7280; /* Gris */
+}
+
+/* Estilos para tamaños responsivos */
+.profile-fallback.profile-sm {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+}
+
+.profile-fallback.profile-md {
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
+}
+
+.profile-fallback.profile-lg {
+    width: 64px;
+    height: 64px;
+    font-size: 20px;
+}
+
+.profile-fallback.profile-xl {
+    width: 96px;
+    height: 96px;
+    font-size: 28px;
+}
+
+/* Animación suave al aparecer el fallback */
+.profile-fallback {
+    animation: profile-fade-in 0.3s ease-out forwards;
+}
+
+@keyframes profile-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

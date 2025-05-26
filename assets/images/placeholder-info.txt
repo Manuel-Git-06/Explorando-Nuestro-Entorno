@@ -1,0 +1,12 @@
+Para las imágenes, necesitarás reemplazar estos archivos con imágenes reales:
+
+1. logo.png - Un logotipo para el proyecto educativo
+2. hero-bg.jpg - Una imagen de fondo para la sección de portada
+3. captura1.jpg y captura2.jpg - Imágenes para ilustrar el contenido
+
+Puedes obtener imágenes gratuitas de sitios como:
+- Unsplash (https://unsplash.com)
+- Pexels (https://pexels.com)
+- Pixabay (https://pixabay.com)
+
+Para el logotipo, puedes crear uno simple usando herramientas como Canva o Adobe Express.

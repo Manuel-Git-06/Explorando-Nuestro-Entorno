@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anexos del proyecto educativo Explorando Nuestro Entorno">
+    <title>Anexos | Explorando Nuestro Entorno</title>
+    <!-- Precargar recursos críticos -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuentes web modernas -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Usar solo la versión CDN de Tailwind CSS para evitar problemas de procesamiento -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <!-- Añadir Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Estilos consolidados -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Estilos para la galería moderna -->
+    <link rel="stylesheet" href="css/modern-gallery.css">
+    <!-- Incluir estilos personalizados directamente en el HTML para evitar problemas de carga -->
+    <style>
+        /* Estilos personalizados para la página de anexos si son necesarios */
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navegación fija superior con scroll-spy -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-md z-50 transition-all duration-300">
+        <div class="max-w-2x2 mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo y nombre -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="assets/images/logoproyecto.png" alt="Logo del Proyecto" class="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-105" />
+                    <span class="text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Explorando Nuestro Entorno</span>
+                </a>
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex items-center h-full">
+                    <ul class="flex h-full">
+                        <li class="nav-item"><a href="index.html" class="nav-link active">Portada</a></li>
+                        <li class="nav-item"><a href="datos.html" class="nav-link">Datos</a></li>
+                        <li class="nav-item"><a href="situacion.html" class="nav-link">Situación</a></li>
+                        <li class="nav-item"><a href="competencias.html" class="nav-link">Competencias</a></li>
+                        <li class="nav-item"><a href="contenidos.html" class="nav-link">Contenidos</a></li>
+                        <li class="nav-item"><a href="indicadores.html" class="nav-link">Indicadores</a></li>
+                        <li class="nav-item"><a href="secuencia.html" class="nav-link">Secuencia</a></li>
+                        <li class="nav-item"><a href="evaluacion.html" class="nav-link">Evaluación</a></li>
+                        <li class="nav-item"><a href="anexos.html" class="nav-link">Anexos</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Botón menú móvil -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 transition-colors">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <span class="sr-only">Abrir menú principal</span>
+                </button>
+            </div>
+            
+            <!-- Menú móvil (oculto por defecto) -->
+            <div id="mobile-menu" class="md:hidden hidden transition-all duration-300 ease-in-out">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg">
+                    <a href="index.html" class="nav-link active block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-home w-5 text-center"></i>
+                        <span>Portada</span>
+                    </a>
+                    <a href="datos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-database w-5 text-center"></i>
+                        <span>Datos</span>
+                    </a>
+                    <a href="situacion.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-map-marked-alt w-5 text-center"></i>
+                        <span>Situación</span>
+                    </a>
+                    <a href="competencias.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-tasks w-5 text-center"></i>
+                        <span>Competencias</span>
+                    </a>
+                    <a href="contenidos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-book w-5 text-center"></i>
+                        <span>Contenidos</span>
+                    </a>
+                    <a href="indicadores.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-chart-line w-5 text-center"></i>
+                        <span>Indicadores</span>
+                    </a>
+                    <a href="secuencia.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-project-diagram w-5 text-center"></i>
+                        <span>Secuencia</span>
+                    </a>
+                    <a href="evaluacion.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-clipboard-check w-5 text-center"></i>
+                        <span>Evaluación</span>
+                    </a>
+                    <a href="anexos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-paperclip w-5 text-center"></i>
+                        <span>Anexos</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20 min-h-screen">
+        <!-- Anexos / Recursos -->
+        <section id="anexos" class="py-12 bg-gradient-to-b from-gray-100 to-white">
+            <div class="max-w-5xl mx-auto px-4">
+                <div data-aos="fade-down" data-aos-duration="800" class="mb-8 text-center">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-2">Anexos y Recursos</h1>
+                    <div class="w-20 h-1 bg-gray-500 mx-auto"></div>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Materiales complementarios para apoyar el proceso de enseñanza-aprendizaje.</p>
+                </div>
+                
+                <!-- Recursos digitales -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+                    <div class="bg-gray-700 text-white py-4 px-6 flex items-center justify-between">
+                        <h2 class="text-xl font-semibold">Recursos Digitales</h2>
+                        <i class="fas fa-laptop text-2xl"></i>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Sitios web recomendados -->
+                            <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                                <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                                    <i class="fas fa-globe text-blue-500"></i>
+                                    Sitios Web Recomendados
+                                </h3>
+                                
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                                        <i class="fas fa-external-link-alt text-blue-500 mt-1"></i>
+                                        <div>
+                                            <a href="https://www.un.org/sustainabledevelopment/es/" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-600 hover:underline">Objetivos de Desarrollo Sostenible - ONU</a>
+                                            <p class="text-sm text-gray-600 mt-1">Información sobre los ODS relacionados con el medio ambiente y la salud.</p>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="flex items-start gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                                        <i class="fas fa-external-link-alt text-blue-500 mt-1"></i>
+                                        <div>
+                                            <a href="https://www.who.int/es/campaigns/connecting-the-world-to-combat-coronavirus/healthyathome/healthyathome---healthy-environments" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-600 hover:underline">OMS - Entornos Saludables</a>
+                                            <p class="text-sm text-gray-600 mt-1">Recursos sobre la relación entre entorno y salud.</p>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="flex items-start gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                                        <i class="fas fa-external-link-alt text-blue-500 mt-1"></i>
+                                        <div>
+                                            <a href="https://www.nationalgeographic.org/education/resource-library/" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-600 hover:underline">National Geographic - Recursos Educativos</a>
+                                            <p class="text-sm text-gray-600 mt-1">Materiales educativos sobre medio ambiente y conservación.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Videos educativos -->
+                            <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                                <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                                    <i class="fas fa-video text-red-500"></i>
+                                    Videos Educativos
+                                </h3>
+                                
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                                        <i class="fab fa-youtube text-red-500 text-xl mt-1"></i>
+                                        <div>
+                                            <a href="https://www.youtube.com/watch?v=RS7IzU2VJIQ" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-600 hover:underline">Contaminación ambiental y sus efectos</a>
+                                            <p class="text-sm text-gray-600 mt-1">Video explicativo sobre los diferentes tipos de contaminación.</p>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="flex items-start gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                                        <i class="fab fa-youtube text-red-500 text-xl mt-1"></i>
+                                        <div>
+                                            <a href="https://www.youtube.com/watch?v=Qol3OMRwkac" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-600 hover:underline">El ciclo del agua y la contaminación</a>
+                                            <p class="text-sm text-gray-600 mt-1">Animación sobre cómo la contaminación afecta el ciclo del agua.</p>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="flex items-start gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                                        <i class="fab fa-youtube text-red-500 text-xl mt-1"></i>
+                                        <div>
+                                            <a href="https://www.youtube.com/watch?v=1-SzXzSA7Ic" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-600 hover:underline">Hábitos saludables para niños</a>
+                                            <p class="text-sm text-gray-600 mt-1">Video educativo sobre hábitos de vida saludables.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Documentos y materiales -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+                    <div class="bg-gray-700 text-white py-4 px-6 flex items-center justify-between">
+                        <h2 class="text-xl font-semibold">Documentos y Materiales</h2>
+                        <i class="fas fa-file-alt text-2xl"></i>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Fichas de trabajo -->
+                            <div>
+                                <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                                    <i class="fas fa-file-pdf text-red-500"></i>
+                                    Fichas de Trabajo
+                                </h3>
+                                
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition">
+                                        <i class="fas fa-file-pdf text-red-500 mt-1"></i>
+                                        <div>
+                                            <a href="assets/pdfs/ficha_contaminacion.pdf" class="font-medium text-blue-600 hover:underline">Ficha: Tipos de contaminación</a>
+                                            <p class="text-sm text-gray-600 mt-1">Material para identificar diferentes tipos de contaminación.</p>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition">
+                                        <i class="fas fa-file-pdf text-red-500 mt-1"></i>
+                                        <div>
+                                            <a href="assets/pdfs/ficha_habitos_saludables.pdf" class="font-medium text-blue-600 hover:underline">Ficha: Hábitos saludables</a>
+                                            <p class="text-sm text-gray-600 mt-1">Actividades sobre hábitos de vida saludables.</p>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition">
+                                        <i class="fas fa-file-pdf text-red-500 mt-1"></i>
+                                        <div>
+                                            <a href="assets/pdfs/ficha_analisis_casos.pdf" class="font-medium text-blue-600 hover:underline">Ficha: Análisis de casos</a>
+                                            <p class="text-sm text-gray-600 mt-1">Casos de estudio sobre problemas ambientales locales.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Plantillas y guías -->
+                            <div>
+                                <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                                    <i class="fas fa-clipboard-list text-green-500"></i>
+                                    Plantillas y Guías
+                                </h3>
+                                
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition">
+                                        <i class="fas fa-file-alt text-green-500 mt-1"></i>
+                                        <div>
+                                            <a href="assets/pdfs/plantilla_mapa_mental.pdf" class="font-medium text-blue-600 hover:underline">Plantilla: Mapa mental</a>
+                                            <p class="text-sm text-gray-600 mt-1">Plantilla para crear el organizador gráfico.</p>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition">
+                                        <i class="fas fa-file-alt text-green-500 mt-1"></i>
+                                        <div>
+                                            <a href="assets/pdfs/guia_accion_mejora.pdf" class="font-medium text-blue-600 hover:underline">Guía: Acción de mejora</a>
+                                            <p class="text-sm text-gray-600 mt-1">Pasos para diseñar una acción de mejora ambiental.</p>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition">
+                                        <i class="fas fa-file-alt text-green-500 mt-1"></i>
+                                        <div>
+                                            <a href="assets/pdfs/registro_reflexivo.pdf" class="font-medium text-blue-600 hover:underline">Plantilla: Registro reflexivo</a>
+                                            <p class="text-sm text-gray-600 mt-1">Formato para el registro de reflexiones personales.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Galería de imágenes moderna -->
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+                    <div class="bg-gradient-to-r from-green-600 to-blue-600 text-white py-4 px-6 flex items-center justify-between">
+                        <h2 class="text-xl font-semibold">Galería Interactiva</h2>
+                        <i class="fas fa-camera-retro text-2xl"></i>
+                    </div>
+                    
+                    <div class="p-6">
+                        <!-- Contenedor para la galería moderna -->
+                        <div id="dynamic-gallery" class="gallery-container">
+                            <!-- El contenido se generará dinámicamente mediante JavaScript -->
+                        </div>
+                        
+                        <p class="text-center text-sm text-gray-500 mt-6">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            Explora las imágenes de nuestros estudiantes trabajando en el proyecto. Utiliza los filtros para ver categorías específicas.
+                        </p>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="400" class="mt-8 flex justify-center gap-4">
+                    <a href="evaluacion.html" class="btn bg-gray-200 hover:bg-gray-300 text-gray-800">
+                        <i class="fas fa-arrow-left"></i> Anterior
+                    </a>
+                    <a href="index.html" class="btn bg-primary-600 hover:bg-primary-700 text-white">
+                        Volver al inicio <i class="fas fa-home"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+ <!-- Footer moderno mejorado -->
+<footer class="bg-gray-900 text-white pt-10 pb-6 mt-12 border-t border-gray-800">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full max-w-6xl mx-auto">
+            <!-- Logos e información -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4">        
+                <!-- Logos -->
+                <div class="flex items-center gap-4">
+                    <img src="assets/images/logorevistaisfodosu.png" alt="ISFODOSU" class="h-12 object-contain">
+                    <img src="assets/images/logocentroeducativo.png" alt="Colegio Didascalio" class="h-12 object-contain">
+                </div>
+                <!-- Información de la institución -->
+                <div class="text-left mt-2 md:mt-0">
+                    <p class="font-extrabold text-xl tracking-wide">Colegio Didascalio Santa María de la Altagracia</p>
+                    <p class="text-gray-400 text-sm mt-1">© 2025 | Desarrollado para fines educativos</p>
+                </div>
+            </div>
+            
+            <!-- Redes sociales -->
+            <div class="flex gap-3 mt-6 md:mt-0">
+                <a href="#" title="Facebook" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-blue-500 transition-colors duration-200">
+                        <i class="fab fa-facebook-f fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="Instagram" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-pink-500 transition-colors duration-200">
+                        <i class="fab fa-instagram fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="Twitter" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-blue-400 transition-colors duration-200">
+                        <i class="fab fa-twitter fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="WhatsApp" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-green-500 transition-colors duration-200">
+                        <i class="fab fa-whatsapp fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Script principal optimizado -->
+    <script src="js/scripts.js"></script>
+    <!-- Script para la galería moderna e interactiva -->
+    <script src="scripts/modern-gallery.js"></script>
+</body>
+</html>

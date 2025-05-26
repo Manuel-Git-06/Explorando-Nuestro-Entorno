@@ -1,0 +1,27 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 30000,
+    "wait": 1000,
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "ignore": [
+      "notice"
+    ],
+    "chromeLaunchConfig": {
+      "args": [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage"
+      ]
+    }
+  },
+  "urls": [
+    "http://localhost:3000/index.html",
+    "http://localhost:3000/anexos.html",
+    "http://localhost:3000/evaluacion.html",
+    "http://localhost:3000/secuencia.html"
+  ]
+}

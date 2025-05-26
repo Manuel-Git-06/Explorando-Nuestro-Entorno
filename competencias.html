@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Competencias del proyecto educativo Explorando Nuestro Entorno">
+    <title>Competencias | Explorando Nuestro Entorno</title>
+    <!-- Precargar recursos críticos -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuentes web modernas -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Usar solo la versión CDN de Tailwind CSS para evitar problemas de procesamiento -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <!-- Añadir Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Estilos consolidados -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Estilos específicos para esta página que no están en el CSS consolidado -->
+    <style>
+        /* Estilos personalizados para la página de competencias si son necesarios */
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navegación fija superior con scroll-spy -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-md z-50 transition-all duration-300">
+        <div class="max-w-2x2 mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo y nombre -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="assets/images/logoproyecto.png" alt="Logo del Proyecto" class="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-105" />
+                    <span class="text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Explorando Nuestro Entorno</span>
+                </a>
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex items-center h-full">
+                    <ul class="flex h-full">
+                        <li class="nav-item"><a href="index.html" class="nav-link active">Portada</a></li>
+                        <li class="nav-item"><a href="datos.html" class="nav-link">Datos</a></li>
+                        <li class="nav-item"><a href="situacion.html" class="nav-link">Situación</a></li>
+                        <li class="nav-item"><a href="competencias.html" class="nav-link">Competencias</a></li>
+                        <li class="nav-item"><a href="contenidos.html" class="nav-link">Contenidos</a></li>
+                        <li class="nav-item"><a href="indicadores.html" class="nav-link">Indicadores</a></li>
+                        <li class="nav-item"><a href="secuencia.html" class="nav-link">Secuencia</a></li>
+                        <li class="nav-item"><a href="evaluacion.html" class="nav-link">Evaluación</a></li>
+                        <li class="nav-item"><a href="anexos.html" class="nav-link">Anexos</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Botón menú móvil -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 transition-colors">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <span class="sr-only">Abrir menú principal</span>
+                </button>
+            </div>
+            
+            <!-- Menú móvil (oculto por defecto) -->
+            <div id="mobile-menu" class="md:hidden hidden transition-all duration-300 ease-in-out">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg">
+                    <a href="index.html" class="nav-link active block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-home w-5 text-center"></i>
+                        <span>Portada</span>
+                    </a>
+                    <a href="datos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-database w-5 text-center"></i>
+                        <span>Datos</span>
+                    </a>
+                    <a href="situacion.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-map-marked-alt w-5 text-center"></i>
+                        <span>Situación</span>
+                    </a>
+                    <a href="competencias.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-tasks w-5 text-center"></i>
+                        <span>Competencias</span>
+                    </a>
+                    <a href="contenidos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-book w-5 text-center"></i>
+                        <span>Contenidos</span>
+                    </a>
+                    <a href="indicadores.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-chart-line w-5 text-center"></i>
+                        <span>Indicadores</span>
+                    </a>
+                    <a href="secuencia.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-project-diagram w-5 text-center"></i>
+                        <span>Secuencia</span>
+                    </a>
+                    <a href="evaluacion.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-clipboard-check w-5 text-center"></i>
+                        <span>Evaluación</span>
+                    </a>
+                    <a href="anexos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-paperclip w-5 text-center"></i>
+                        <span>Anexos</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20 min-h-screen">
+        <!-- Competencias -->
+        <section id="competencias" class="py-12 bg-gradient-to-b from-purple-50 to-white">
+            <div class="max-w-4xl mx-auto px-4">
+                <div data-aos="fade-down" data-aos-duration="800" class="mb-8 text-center">
+                    <h1 class="text-3xl font-bold text-purple-800 mb-2">Competencias</h1>
+                    <div class="w-20 h-1 bg-purple-500 mx-auto"></div>
+                </div>
+                
+                <!-- Competencias Fundamentales -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+                    <div class="bg-purple-600 text-white py-4 px-6 flex items-center justify-between">
+                        <h2 class="text-xl font-semibold">Competencias Fundamentales</h2>
+                        <i class="fas fa-brain text-2xl"></i>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-200 flex flex-col items-center text-center transform transition hover:scale-105">
+                                <i class="fas fa-comments text-3xl text-purple-600 mb-3"></i>
+                                <h3 class="font-semibold mb-1">Comunicativa</h3>
+                                <p class="text-sm">Expresión efectiva de ideas y conceptos</p>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-200 flex flex-col items-center text-center transform transition hover:scale-105">
+                                <i class="fas fa-brain text-3xl text-purple-600 mb-3"></i>
+                                <h3 class="font-semibold mb-1">Pensamiento Lógico, Creativo y Crítico</h3>
+                                <p class="text-sm">Análisis y resolución de problemas</p>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-200 flex flex-col items-center text-center transform transition hover:scale-105">
+                                <i class="fas fa-puzzle-piece text-3xl text-purple-600 mb-3"></i>
+                                <h3 class="font-semibold mb-1">Resolución de Problemas</h3>
+                                <p class="text-sm">Estrategias para enfrentar desafíos</p>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-200 flex flex-col items-center text-center transform transition hover:scale-105">
+                                <i class="fas fa-balance-scale text-3xl text-purple-600 mb-3"></i>
+                                <h3 class="font-semibold mb-1">Ética y Ciudadana</h3>
+                                <p class="text-sm">Valores y responsabilidad social</p>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-200 flex flex-col items-center text-center transform transition hover:scale-105">
+                                <i class="fas fa-flask text-3xl text-purple-600 mb-3"></i>
+                                <h3 class="font-semibold mb-1">Científica y Tecnológica</h3>
+                                <p class="text-sm">Investigación y aplicación del método científico</p>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-200 flex flex-col items-center text-center transform transition hover:scale-105">
+                                <i class="fas fa-leaf text-3xl text-purple-600 mb-3"></i>
+                                <h3 class="font-semibold mb-1">Ambiental y de la Salud</h3>
+                                <p class="text-sm">Cuidado del entorno y bienestar personal</p>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-200 flex flex-col items-center text-center transform transition hover:scale-105 md:col-span-3 lg:col-span-1">
+                                <i class="fas fa-heart text-3xl text-purple-600 mb-3"></i>
+                                <h3 class="font-semibold mb-1">Desarrollo Personal y Espiritual</h3>
+                                <p class="text-sm">Autoconocimiento y crecimiento integral</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Competencias Específicas -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+                    <div class="bg-indigo-600 text-white py-4 px-6 flex items-center justify-between">
+                        <h2 class="text-xl font-semibold">Competencias Específicas</h2>
+                        <i class="fas fa-microscope text-2xl"></i>
+                    </div>
+                    
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg border border-indigo-100 transform transition hover:bg-indigo-100">
+                                <i class="fas fa-comment-dots text-indigo-600 text-xl mt-1"></i>
+                                <div>
+                                    <h3 class="font-semibold">Comunicación Científica</h3>
+                                    <p>Se comunica utilizando el Lenguaje científico y tecnológico de ciencias de la tierra y el universo que implica sus ideas básicas a respuestas a preguntas y situaciones de problemas simulados y reales.</p>
+                                </div>
+                            </li>
+                            
+                            <li class="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg border border-indigo-100 transform transition hover:bg-indigo-100">
+                                <i class="fas fa-lightbulb text-indigo-600 text-xl mt-1"></i>
+                                <div>
+                                    <h3 class="font-semibold">Explicación Científica</h3>
+                                    <p>Ofrece explicaciones científicas y tecnológicas a problemas y fenómenos naturales relacionados a Ciencias de la Tierra y el Universo.</p>
+                                </div>
+                            </li>
+                            
+                            <li class="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg border border-indigo-100 transform transition hover:bg-indigo-100">
+                                <i class="fas fa-cogs text-indigo-600 text-xl mt-1"></i>
+                                <div>
+                                    <h3 class="font-semibold">Aplicación de Procedimientos</h3>
+                                    <p>Aplica procedimientos científicos y tecnológicos, básicos y organizados para solucionar problemas o dar respuestas a fenómenos naturales relacionados con Ciencias de la Tierra y el Universo.</p>
+                                </div>
+                            </li>
+                            
+                            <li class="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg border border-indigo-100 transform transition hover:bg-indigo-100">
+                                <i class="fas fa-search text-indigo-600 text-xl mt-1"></i>
+                                <div>
+                                    <h3 class="font-semibold">Análisis Científico</h3>
+                                    <p>Analiza la naturaleza de las ciencias naturales y el alcance del desarrollo tecnológico en nuestra sociedad relacionada con Ciencias de la Tierra y el Universo, sus aportes y reflexiones éticas.</p>
+                                </div>
+                            </li>
+                            
+                            <li class="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg border border-indigo-100 transform transition hover:bg-indigo-100">
+                                <i class="fas fa-question-circle text-indigo-600 text-xl mt-1"></i>
+                                <div>
+                                    <h3 class="font-semibold">Cuestionamiento Científico</h3>
+                                    <p>Se cuestiona e identifica problemas y situaciones, y les da explicación utilizando ideas y procesos fundamentales de las Ciencias de la Tierra y el Universo.</p>
+                                </div>
+                            </li>
+                            
+                            <li class="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg border border-indigo-100 transform transition hover:bg-indigo-100">
+                                <i class="fas fa-hand-holding-heart text-indigo-600 text-xl mt-1"></i>
+                                <div>
+                                    <h3 class="font-semibold">Responsabilidad Ambiental</h3>
+                                    <p>Actúa con responsabilidades críticas y autónomas para el cuidado de su salud y ambientales relacionadas con Ciencias de la Tierra y el Universo.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="300" class="mt-8 flex justify-center gap-4">
+                    <a href="situacion.html" class="btn bg-gray-200 hover:bg-gray-300 text-gray-800">
+                        <i class="fas fa-arrow-left"></i> Anterior
+                    </a>
+                    <a href="contenidos.html" class="btn bg-purple-600 hover:bg-purple-700 text-white">
+                        Siguiente <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+  <!-- Footer moderno mejorado -->
+<footer class="bg-gray-900 text-white pt-10 pb-6 mt-12 border-t border-gray-800">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full max-w-6xl mx-auto">
+            <!-- Logos e información -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4">        
+                <!-- Logos -->
+                <div class="flex items-center gap-4">
+                    <img src="assets/images/logorevistaisfodosu.png" alt="ISFODOSU" class="h-12 object-contain">
+                    <img src="assets/images/logocentroeducativo.png" alt="Colegio Didascalio" class="h-12 object-contain">
+                </div>
+                <!-- Información de la institución -->
+                <div class="text-left mt-2 md:mt-0">
+                    <p class="font-extrabold text-xl tracking-wide">Colegio Didascalio Santa María de la Altagracia</p>
+                    <p class="text-gray-400 text-sm mt-1">© 2025 | Desarrollado para fines educativos</p>
+                </div>
+            </div>
+            
+            <!-- Redes sociales -->
+            <div class="flex gap-3 mt-6 md:mt-0">
+                <a href="#" title="Facebook" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-blue-500 transition-colors duration-200">
+                        <i class="fab fa-facebook-f fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="Instagram" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-pink-500 transition-colors duration-200">
+                        <i class="fab fa-instagram fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="Twitter" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-blue-400 transition-colors duration-200">
+                        <i class="fab fa-twitter fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="WhatsApp" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-green-500 transition-colors duration-200">
+                        <i class="fab fa-whatsapp fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scripts -->
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Script principal optimizado -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

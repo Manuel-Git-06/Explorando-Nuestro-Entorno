@@ -1,0 +1,201 @@
+/**
+ * optimized.css - Estilos optimizados para el proyecto Planificación Revés
+ * Este archivo combina y optimiza los estilos críticos para mejorar el rendimiento
+ */
+
+/* Estilos básicos */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+  color: #1a202c;
+  background-color: #f7fafc;
+}
+
+/* Optimizaciones para imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-error {
+  border: 1px dashed #cbd5e0;
+  background-color: #f7fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+/* Mejoras de accesibilidad */
+:focus {
+  outline: 2px solid #4299e1;
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Animaciones optimizadas */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.slide-up {
+  animation: slideInUp 0.5s ease-out;
+}
+
+/* Componentes UI optimizados */
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #4299e1;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #3182ce;
+}
+
+.btn-secondary {
+  background-color: #a0aec0;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #718096;
+}
+
+/* Optimizaciones para móviles */
+@media (max-width: 640px) {
+  .card {
+    margin-bottom: 1rem;
+  }
+  
+  .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Estilos para el acordeón */
+.accordion {
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  padding: 0.75rem 1rem;
+  background: #e5e7eb;
+  border-radius: 0.375rem;
+  margin-bottom: 0.5rem;
+}
+
+.accordion.active, .accordion:hover {
+  background: #bbf7d0;
+}
+
+.panel {
+  padding: 0 1rem 1rem 1rem;
+  display: none;
+  background: #f1f5f9;
+  border-radius: 0.375rem;
+}
+
+.panel.show {
+  display: block;
+  animation: fadeIn 0.4s;
+}
+
+/* Estilos para pestañas */
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tablink {
+  background: #e5e7eb;
+  border-radius: 0.375rem 0.375rem 0 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.tablink.active {
+  background: #dbeafe;
+  font-weight: 600;
+}
+
+.tabcontent {
+  display: none;
+  padding: 1rem;
+  background: #f1f5f9;
+  border-radius: 0 0.375rem 0.375rem 0.375rem;
+}
+
+.tabcontent.active {
+  display: block;
+}
+
+/* Optimizaciones para rendimiento */
+* {
+  text-rendering: optimizeSpeed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
