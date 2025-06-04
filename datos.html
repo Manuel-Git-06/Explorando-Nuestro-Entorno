@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datos generales del proyecto educativo Explorando Nuestro Entorno">
+    <title>Datos Generales | Explorando Nuestro Entorno</title>
+    <!-- Precargar recursos críticos -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuentes web modernas -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Usar solo la versión CDN de Tailwind CSS para evitar problemas de procesamiento -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <!-- Añadir Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Estilos consolidados -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Incluir estilos personalizados directamente en el HTML para evitar problemas de carga -->
+    <style>
+        /* Estilos personalizados para la página de datos */
+        .data-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .data-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .data-table th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .data-table tr:hover {
+            background-color: #f9fafb;
+        }
+        
+        .institution-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .institution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .institution-card:hover::before {
+            transform: scaleX(1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navegación fija superior con scroll-spy -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-md z-50 transition-all duration-300">
+        <div class="max-w-2x2 mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo y nombre -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="assets/images/logoproyecto.png" alt="Logo del Proyecto" class="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-105" />
+                    <span class="text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Explorando Nuestro Entorno</span>
+                </a>
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex items-center h-full">
+                    <ul class="flex h-full">
+                        <li class="nav-item"><a href="index.html" class="nav-link active">Portada</a></li>
+                        <li class="nav-item"><a href="datos.html" class="nav-link">Datos</a></li>
+                        <li class="nav-item"><a href="situacion.html" class="nav-link">Situación</a></li>
+                        <li class="nav-item"><a href="competencias.html" class="nav-link">Competencias</a></li>
+                        <li class="nav-item"><a href="contenidos.html" class="nav-link">Contenidos</a></li>
+                        <li class="nav-item"><a href="indicadores.html" class="nav-link">Indicadores</a></li>
+                        <li class="nav-item"><a href="secuencia.html" class="nav-link">Secuencia</a></li>
+                        <li class="nav-item"><a href="evaluacion.html" class="nav-link">Evaluación</a></li>
+                        <li class="nav-item"><a href="anexos.html" class="nav-link">Anexos</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Botón menú móvil -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 transition-colors">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <span class="sr-only">Abrir menú principal</span>
+                </button>
+            </div>
+            
+            <!-- Menú móvil (oculto por defecto) -->
+            <div id="mobile-menu" class="md:hidden hidden transition-all duration-300 ease-in-out">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg">
+                    <a href="index.html" class="nav-link active block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-home w-5 text-center"></i>
+                        <span>Portada</span>
+                    </a>
+                    <a href="datos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-database w-5 text-center"></i>
+                        <span>Datos</span>
+                    </a>
+                    <a href="situacion.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-map-marked-alt w-5 text-center"></i>
+                        <span>Situación</span>
+                    </a>
+                    <a href="competencias.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-tasks w-5 text-center"></i>
+                        <span>Competencias</span>
+                    </a>
+                    <a href="contenidos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-book w-5 text-center"></i>
+                        <span>Contenidos</span>
+                    </a>
+                    <a href="indicadores.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-chart-line w-5 text-center"></i>
+                        <span>Indicadores</span>
+                    </a>
+                    <a href="secuencia.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-project-diagram w-5 text-center"></i>
+                        <span>Secuencia</span>
+                    </a>
+                    <a href="evaluacion.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-clipboard-check w-5 text-center"></i>
+                        <span>Evaluación</span>
+                    </a>
+                    <a href="anexos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-paperclip w-5 text-center"></i>
+                        <span>Anexos</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav> 
+    <main class="pt-20">
+        <!-- Encabezado de la página -->
+        <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Datos Generales del Proyecto</h1>
+                    <div class="h-1 w-32 bg-white mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
+               
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de responsables del proyecto - Versión Mejorada -->
+        <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4 text-blue-800 relative inline-block">
+                        <span class="relative z-10">Nuestro Equipo</span>
+                        <span class="absolute bottom-0 left-0 w-full h-3 bg-yellow-200 opacity-50 -z-0 transform -rotate-1"></span>
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Conoce al equipo de especialistas que hacen posible este proyecto educativo innovador</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Tarjeta 1: Juan Carlos Méndez -->
+                    <div class="relative group" data-aos="fade-up">
+
+                        <div class="relative bg-white rounded-xl p-1 h-full">
+                            <div class="relative overflow-hidden rounded-t-xl h-64 flex items-center justify-center bg-white">
+                                <img src="assets/images/juancarlosmendes.png" alt="Juan Carlos Méndez" class="h-full w-auto object-contain transform transition-transform duration-300 group-hover:scale-105">
+                            </div>
+                            <div class="py-4 px-6 text-center">
+                                
+                                <span class="inline-block bg-gradient-to-r from-blue-500 to-green-500 text-transparent bg-clip-text font-medium text-sm mb-3">Docente colaborador</span>
+                                <p class="text-gray-600 text-sm mb-4">Docente de Ciencias Naturales y Especialista en Educación Ambiental. Coordinador del proyecto y Promotor de proyectos de impacto social y ecológico.</p>
+                                <div class="flex flex-wrap justify-center gap-2">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                        <i class="fas fa-atom mr-1"></i> Ciencias Naturales
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        <i class="fas fa-leaf mr-1"></i> Gestión Ambiental
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2: Manuel Brito -->
+                    <div class="relative group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative bg-white rounded-xl p-1 h-full">
+                            <div class="relative overflow-hidden rounded-t-xl h-64 flex items-center justify-center bg-white">
+                                <img src="assets/images/manuelbrito.png" alt="Manuel Brito" class="h-full w-auto object-contain transform transition-transform duration-300 group-hover:scale-105">
+                            </div>
+                            <div class="py-4 px-6 text-center">
+                                
+                                <span class="inline-block bg-gradient-to-r from-blue-500 to-yellow-400 text-transparent bg-clip-text font-medium text-sm mb-3">Docente y Desarrollador</span>
+                                <p class="text-gray-600 text-sm mb-4">Docente de Ciencias Naturales y Especialista en Educación Ambiental. Innovador, apasionado por la tecnología educativa y el aprendizaje gamificado en el aula.</p>
+                                <div class="flex flex-wrap justify-center gap-2">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                        <i class="fas fa-laptop-code mr-1"></i> Tecnología
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                        <i class="fas fa-gamepad mr-1"></i> Aprendizaje Gamificado
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3: Nathaly Santana -->
+                    <div class="relative group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative bg-white rounded-xl p-1 h-full">
+                            <div class="relative overflow-hidden rounded-t-xl h-64 flex items-center justify-center bg-white">
+                                <img src="assets/images/nathalysantana.png" alt="Nathaly Santana" class="h-full w-auto object-contain transform transition-transform duration-300 group-hover:scale-105">
+                            </div>
+                            <div class="py-4 px-6 text-center">
+                                
+                                <span class="inline-block bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text font-medium text-sm mb-3">Coordinadora del Proyecto</span>
+                                <p class="text-gray-600 text-sm mb-4">Docente de Ciencias Naturales y Especialista en Educación Ambiental. Coordinadora del proyecto y Promotor de proyectos de impacto social y ecológico.</p>
+                                <div class="flex flex-wrap justify-center gap-2">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-pink-100 text-pink-800">
+                                        <i class="fas fa-users mr-1"></i> Habilidades Sociales
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                        <i class="fas fa-graduation-cap mr-1"></i> Educación Integral
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    
+        <!-- Sección: Instituciones Educativas -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">Instituciones Educativas</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                        <!-- Institución Formadora -->
+                        <div class="institution-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" data-aos="fade-up">
+                            <div class="bg-gradient-to-r from-blue-600 to-blue-800 p-6 text-center">
+                                <div class="flex justify-center mb-4">
+                                    <img src="assets/images/logorevistaisfodosu.png" alt="ISFODOSU" class="h-24 object-contain">
+                                </div>
+                                <h3 class="text-xl font-bold text-white">Instituto Superior de Formación Docente</h3>
+                                <p class="text-blue-100">Recinto Emilio Prud'Homme</p>
+                            </div>
+                            <div class="p-6">
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-blue-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-blue-700 mb-2">Misión</h4>
+                                        <p class="text-sm text-gray-600">Formar docentes innovadores, críticos y comprometidos con la excelencia educativa.</p>
+                                    </div>
+                                    <div class="bg-green-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-green-700 mb-2">Visión</h4>
+                                        <p class="text-sm text-gray-600">Ser referente nacional en la formación de educadores de calidad.</p>
+                                    </div>
+                                </div>
+                                <div class="border-t pt-4">
+                                    <h4 class="font-semibold text-gray-700 mb-2">Enfoque</h4>
+                                    <p class="text-sm text-gray-600">Educación de calidad con énfasis en la innovación pedagógica y el desarrollo profesional docente.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Colegio -->
+                        <div class="institution-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+                            <div class="bg-gradient-to-r from-green-600 to-green-800 p-6 text-center">
+                                <div class="flex justify-center mb-4">
+                                    <img src="assets/images/logocentroeducativo.png" alt="Colegio Didascalio" class="h-24 object-contain">
+                                </div>
+                                <h3 class="text-xl font-bold text-white">Colegio Didascalio Santa María de la Altagracia</h3>
+                                <p class="text-green-100">Año escolar 2024 – 2025</p>
+                            </div>
+                            <div class="p-6">
+                                <div class="mb-4">
+                                    <h4 class="font-semibold text-gray-700 mb-2 flex items-center">
+                                        <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>
+                                        Ubicación
+                                    </h4>
+                                    <p class="text-sm text-gray-600 ml-6">Calle Progreso, Santo Domingo 10412, República Dominicana</p>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-blue-50 p-3 rounded-lg">
+                                        <h4 class="font-semibold text-blue-700 text-sm mb-1">Niveles</h4>
+                                        <p class="text-xs text-gray-600">Inicial, Primaria y Secundaria</p>
+                                    </div>
+                                    <div class="bg-yellow-50 p-3 rounded-lg">
+                                        <h4 class="font-semibold text-yellow-700 text-sm mb-1">Enfoque</h4>
+                                        <p class="text-xs text-gray-600">Ciencias Naturales y Educación Ambiental</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-gray-700 text-sm mb-2">Horario</h4>
+                                    <p class="text-xs text-gray-600">Lunes a Viernes: 7:30 AM - 2:30 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Sección: Estadísticas Destacadas -->
+        <section class="py-12 bg-gradient-to-r from-blue-50 to-green-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4 text-blue-800" data-aos="fade-up">Estadísticas Destacadas</h2>
+                    <p class="text-gray-600">Logros y cifras clave del proyecto y la institución educativa.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-white rounded-xl shadow p-6 flex flex-col items-center" data-aos="zoom-in">
+                        <div class="bg-blue-100 text-blue-600 rounded-full p-4 mb-3">
+                            <i class="fas fa-users text-3xl"></i>
+                        </div>
+                        <div class="text-3xl font-extrabold text-blue-700 mb-1">+350</div>
+                        <div class="text-gray-600 text-sm">Estudiantes impactados</div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow p-6 flex flex-col items-center" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="bg-green-100 text-green-600 rounded-full p-4 mb-3">
+                            <i class="fas fa-leaf text-3xl"></i>
+                        </div>
+                        <div class="text-3xl font-extrabold text-green-700 mb-1">12</div>
+                        <div class="text-gray-600 text-sm">Proyectos ambientales realizados</div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow p-6 flex flex-col items-center" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="bg-yellow-100 text-yellow-600 rounded-full p-4 mb-3">
+                            <i class="fas fa-award text-3xl"></i>
+                        </div>
+                        <div class="text-3xl font-extrabold text-yellow-700 mb-1">20</div>
+                        <div class="text-gray-600 text-sm">Premios académicos</div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow p-6 flex flex-col items-center" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="bg-purple-100 text-purple-600 rounded-full p-4 mb-3">
+                            <i class="fas fa-chalkboard-teacher text-3xl"></i>
+                        </div>
+                        <div class="text-3xl font-extrabold text-purple-700 mb-1">25</div>
+                        <div class="text-gray-600 text-sm">Docentes capacitados</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Información del Proyecto -->
+        <section class="py-12 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="text-2xl font-bold text-center text-gray-800 mb-10" data-aos="fade-up">Información del Proyecto</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                        <!-- Objetivos -->
+                        <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Objetivos</h3>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Desarrollar habilidades en Ciencias de la Naturaleza y Educación Ambiental.</li>
+                                <li>Fomentar la conciencia ambiental y la sostenibilidad.</li>
+                                <li>Promover la colaboración y el trabajo en equipo.</li>
+                            </ul>
+                        </div>
+                        <!-- Competencias -->
+                        <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up" data-aos-delay="100">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Competencias</h3>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Capacidad de análisis crítico sobre el entorno.</li>
+                                <li>Trabajo colaborativo y liderazgo.</li>
+                                <li>Comunicación efectiva de ideas ambientales.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Línea de tiempo de hitos -->
+                    <div class="relative">
+                        <div class="border-l-4 border-blue-200 absolute h-full left-6 top-0"></div>
+                        <ul class="space-y-10 ml-12">
+                            <li class="relative" data-aos="fade-right">
+                                <div class="absolute -left-8 top-1 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold shadow-lg">1</div>
+                                <div class="bg-white rounded-lg shadow p-6">
+                                    <h4 class="font-bold text-blue-700 mb-1">Inicio del Proyecto</h4>
+                                    <p class="text-gray-600 text-sm">Presentación del proyecto y sensibilización sobre el impacto ambiental.</p>
+                                    <span class="text-xs text-gray-400">Enero 2025</span>
+                                </div>
+                            </li>
+                            <li class="relative" data-aos="fade-right" data-aos-delay="100">
+                                <div class="absolute -left-8 top-1 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold shadow-lg">2</div>
+                                <div class="bg-white rounded-lg shadow p-6">
+                                    <h4 class="font-bold text-green-700 mb-1">Actividades de Campo</h4>
+                                    <p class="text-gray-600 text-sm">Exploración del entorno y recolección de datos ambientales.</p>
+                                    <span class="text-xs text-gray-400">Febrero - Marzo 2025</span>
+                                </div>
+                            </li>
+                            <li class="relative" data-aos="fade-right" data-aos-delay="200">
+                                <div class="absolute -left-8 top-1 w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center font-bold shadow-lg">3</div>
+                                <div class="bg-white rounded-lg shadow p-6">
+                                    <h4 class="font-bold text-yellow-700 mb-1">Presentación de Resultados</h4>
+                                    <p class="text-gray-600 text-sm">Socialización de hallazgos y propuestas de mejora ambiental.</p>
+                                    <span class="text-xs text-gray-400">Abril 2025</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div data-aos="fade-up" data-aos-delay="700" class="mt-8 flex justify-center gap-4">
+            <a href="portada.html" class="btn bg-gray-200 hover:bg-gray-300 text-gray-800">
+                <i class="fas fa-arrow-left"></i> Anterior
+            </a>
+            <a href="situacion.html" class="btn bg-secondary-600 hover:bg-secondary-700 text-white">
+                Siguiente <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+   <!-- Footer moderno mejorado -->
+<footer class="bg-gray-900 text-white pt-10 pb-6 mt-12 border-t border-gray-800">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full max-w-6xl mx-auto">
+            <!-- Logos e información -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4">        
+                <!-- Logos -->
+                <div class="flex items-center gap-4">
+                    <img src="assets/images/logorevistaisfodosu.png" alt="ISFODOSU" class="h-12 object-contain">
+                    <img src="assets/images/logocentroeducativo.png" alt="Colegio Didascalio" class="h-12 object-contain">
+                </div>
+                <!-- Información de la institución -->
+                <div class="text-left mt-2 md:mt-0">
+                    <p class="font-extrabold text-xl tracking-wide">Colegio Didascalio Santa María de la Altagracia</p>
+                    <p class="text-gray-400 text-sm mt-1">© 2025 | Desarrollado para fines educativos</p>
+                </div>
+            </div>
+            
+            <!-- Redes sociales -->
+            <div class="flex gap-3 mt-6 md:mt-0">
+                <a href="#" title="Facebook" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-blue-500 transition-colors duration-200">
+                        <i class="fab fa-facebook-f fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="Instagram" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-pink-500 transition-colors duration-200">
+                        <i class="fab fa-instagram fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="Twitter" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-blue-400 transition-colors duration-200">
+                        <i class="fab fa-twitter fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="WhatsApp" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-green-500 transition-colors duration-200">
+                        <i class="fab fa-whatsapp fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        // Inicializar AOS (Animate On Scroll)
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Inicializar el menú móvil
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

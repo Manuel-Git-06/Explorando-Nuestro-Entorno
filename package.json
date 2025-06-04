@@ -1,0 +1,54 @@
+{
+  "name": "sitio_web_planificacion_reves",
+  "version": "1.0.0",
+  "description": "Sitio web educativo responsivo y atractivo para planificaciones didácticas.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "optimize-images": "node scripts/optimize-images.js",
+    "optimize-images:advanced": "node scripts/optimize-images-advanced.js",
+    "analyze": "vite build --mode analyze",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
+    "a11y": "pa11y-ci ./dist/**/*.html",
+    "deploy:netlify": "netlify deploy --prod",
+    "deploy:vercel": "vercel --prod",
+    "deploy:gh-pages": "gh-pages -d dist",
+    "build:full": "npm run optimize-images:advanced && npm run build && npm run a11y",
+    "start": "npx serve",
+    "clean": "rimraf dist .cache",
+    "fix-images": "node scripts/image-loader.js"
+  },
+  "keywords": [
+    "educación",
+    "planificación",
+    "didáctica",
+    "vite",
+    "tailwindcss"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-legacy": "^6.1.1",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^8.56.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "gh-pages": "^6.1.1",
+    "glob": "^10.3.10",
+    "netlify-cli": "^17.15.1",
+    "pa11y-ci": "^3.1.0",
+    "postcss": "^8.5.3",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^4.1.7",
+    "vercel": "^33.5.1",
+    "vite": "^6.3.5",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-imagemin": "^0.6.1"
+  },
+  "dependencies": {
+    "cssnano": "^7.0.7"
+  }
+}

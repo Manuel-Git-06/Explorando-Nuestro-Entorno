@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proyecto educativo Explorando Nuestro Entorno - Planificación Inversa">
+    <title>Explorando Nuestro Entorno | Planificación Inversa</title>
+    <!-- Precargar recursos críticos -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuentes web modernas -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Usar solo la versión CDN de Tailwind CSS para evitar problemas de procesamiento -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <!-- Añadir Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Estilos consolidados -->
+    <link rel="stylesheet" href="css/profile-fallbacks.css">
+    <!-- Incluir estilos personalizados directamente en el HTML para evitar problemas de carga -->
+    <style>
+        /* Estilos básicos */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Estilos para el collage de fondo de la portada */
+        .environmental-collage {
+            position: relative;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            min-height: 100vh;
+        }
+        
+        .collage-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+            z-index: 1;
+        }
+        
+        .collage-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            opacity: 0.6;
+            z-index: 0;
+        }
+        
+        /* Estilos para los elementos del collage */
+        .collage-item {
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(30%);
+            transition: all 0.5s ease;
+            min-height: 100%;
+        }
+        
+        /* Definición de imágenes para el collage */
+        /* Imágenes del collage con respaldo en caso de fallo */
+        .collage-item-1 {
+            background-image: url('https://images.pexels.com/photos/2768961/pexels-photo-2768961.jpeg?auto=compress&cs=tinysrgb&w=800');
+            background-color: #374151; /* Respaldo si la imagen no carga */
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
+        }
+        
+        .collage-item-2 {
+            background-image: url('https://images.pexels.com/photos/1198507/pexels-photo-1198507.jpeg?auto=compress&cs=tinysrgb&w=800');
+            background-color: #4B5563; /* Respaldo si la imagen no carga */
+            grid-column: 3 / 5;
+            grid-row: 1 / 2;
+        }
+        
+        .collage-item-3 {
+            background-image: url('https://images.pexels.com/photos/4167579/pexels-photo-4167579.jpeg?auto=compress&cs=tinysrgb&w=800');
+            background-color: #6B7280; /* Respaldo si la imagen no carga */
+            grid-column: 1 / 3;
+            grid-row: 2 / 3;
+        }
+        
+        .collage-item-4 {
+            background-image: url('https://images.pexels.com/photos/2409022/pexels-photo-2409022.jpeg?auto=compress&cs=tinysrgb&w=800');
+            background-color: #4B5563; /* Respaldo si la imagen no carga */
+            grid-column: 3 / 4;
+            grid-row: 2 / 3;
+        }
+        
+        .collage-item-5 {
+            background-image: url('https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg?auto=compress&cs=tinysrgb&w=800');
+            background-color: #374151; /* Respaldo si la imagen no carga */
+            grid-column: 4 / 5;
+            grid-row: 2 / 3;
+        }
+        
+        /* Efectos hover para las imágenes */
+        .collage-item:hover {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+            z-index: 5;
+        }
+        
+        /* Animación para el contenido de la portada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+    <!-- Eliminar el redirect automático para poder ver la página principal -->
+    <!-- <meta http-equiv="refresh" content="0;url=portada.html"> -->
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navegación fija superior con scroll-spy -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-md z-50 transition-all duration-300">
+        <div class="max-w-2x2 mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo y nombre -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="assets/images/logoproyecto.png" alt="Logo del Proyecto" class="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-105" />
+                    <span class="text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Explorando Nuestro Entorno</span>
+                </a>
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex items-center h-full">
+                    <ul class="flex h-full">
+                        <li class="nav-item"><a href="index.html" class="nav-link ">Portada</a></li>
+                        <li class="nav-item"><a href="datos.html" class="nav-link">Datos</a></li>
+                        <li class="nav-item"><a href="situacion.html" class="nav-link">Situación</a></li>
+                        <li class="nav-item"><a href="competencias.html" class="nav-link">Competencias</a></li>
+                        <li class="nav-item"><a href="contenidos.html" class="nav-link">Contenidos</a></li>
+                        <li class="nav-item"><a href="indicadores.html" class="nav-link">Indicadores</a></li>
+                        <li class="nav-item"><a href="secuencia.html" class="nav-link">Secuencia</a></li>
+                        <li class="nav-item"><a href="evaluacion.html" class="nav-link">Evaluación</a></li>
+                        <li class="nav-item"><a href="anexos.html" class="nav-link">Anexos</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Botón menú móvil -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 transition-colors">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <span class="sr-only">Abrir menú principal</span>
+                </button>
+            </div>
+            
+            <!-- Menú móvil (oculto por defecto) -->
+            <div id="mobile-menu" class="md:hidden hidden transition-all duration-300 ease-in-out">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg">
+                    <a href="index.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-home w-5 text-center"></i>
+                        <span>Portada</span>
+                    </a>
+                    <a href="datos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-database w-5 text-center"></i>
+                        <span>Datos</span>
+                    </a>
+                    <a href="situacion.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-map-marked-alt w-5 text-center"></i>
+                        <span>Situación</span>
+                    </a>
+                    <a href="competencias.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-tasks w-5 text-center"></i>
+                        <span>Competencias</span>
+                    </a>
+                    <a href="contenidos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-book w-5 text-center"></i>
+                        <span>Contenidos</span>
+                    </a>
+                    <a href="indicadores.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-chart-line w-5 text-center"></i>
+                        <span>Indicadores</span>
+                    </a>
+                    <a href="secuencia.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-project-diagram w-5 text-center"></i>
+                        <span>Secuencia</span>
+                    </a>
+                    <a href="evaluacion.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-clipboard-check w-5 text-center"></i>
+                        <span>Evaluación</span>
+                    </a>
+                    <a href="anexos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-paperclip w-5 text-center"></i>
+                        <span>Anexos</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        <!-- Portada / Hero Section con collage de imágenes sobre contaminación -->
+        <section id="portada" class="environmental-collage relative">
+            <!-- Collage de imágenes de fondo con las imágenes proporcionadas -->
+            <div class="collage-grid">
+                <div class="collage-item collage-item-1"></div> <!-- Imagen 1: Basura en llamas y contaminación industrial -->
+                <div class="collage-item collage-item-2"></div> <!-- Imagen 2: Sequía y deforestación -->
+                <div class="collage-item collage-item-3"></div> <!-- Imagen 3: Contaminación por emisiones y basura -->
+                <div class="collage-item collage-item-4"></div> <!-- Imagen 4: Vertedero de basura -->
+                <div class="collage-item collage-item-5"></div> <!-- Imagen 5: Tortuga atrapada en plástico -->
+            </div>
+            
+            <!-- Overlay para mejorar la legibilidad del texto -->
+            <div class="collage-overlay"></div>
+            
+            <!-- Contenido principal -->
+            <div class="hero-content z-10 px-4 py-20 rounded-lg text-center max-w-2xl mx-auto flex flex-col items-center justify-center min-h-screen">
+                <!-- Insignia de alerta -->
+                <div class="inline-block p-3 bg-red-600 bg-opacity-80 rounded-full mb-6 animate-pulse">
+                    <i class="fas fa-exclamation-triangle text-white text-4xl"></i>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-white leading-tight" data-aos="fade-up" data-aos-duration="1000">Explorando Nuestro Entorno: <span id="animated-keywords" class="text-yellow-400">Impacto humano y salud</span></h1>
+                
+                <div class="h-1 w-40 bg-red-500 mx-auto mb-8"></div>
+                
+                <p class="text-lg md:text-xl mb-10 text-gray-200" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Un llamado urgente a la acción. Descubre cómo nuestras decisiones diarias están afectando el medio ambiente y nuestra salud. Es tiempo de hacer un cambio.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12 w-full max-w-md mx-auto" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                    <a href="datos.html" class="btn bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg shadow-lg transition transform hover:scale-105 flex items-center justify-center w-full">
+                        <i class="fas fa-arrow-right mr-2"></i> Comenzar el recorrido
+                    </a>
+                    <a href="situacion.html" class="btn bg-secondary-600 hover:bg-secondary-700 text-white px-6 py-3 rounded-lg shadow-lg transition transform hover:scale-105 flex items-center justify-center w-full">
+                        <i class="fas fa-exclamation-circle mr-2"></i> Ver la problemática
+                    </a>
+                </div>
+                
+                <!-- Estadísticas impactantes -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-4">
+                    <div class="bg-black bg-opacity-50 p-4 rounded-lg border border-red-500">
+                        <div class="text-3xl font-bold text-red-400 mb-1">8M+</div>
+                        <p class="text-gray-300 text-sm">Toneladas de plástico vertidas en los océanos cada año</p>
+                    </div>
+                    <div class="bg-black bg-opacity-50 p-4 rounded-lg border border-red-500">
+                        <div class="text-3xl font-bold text-red-400 mb-1">7M</div>
+                        <p class="text-gray-300 text-sm">Muertes prematuras anuales por contaminación del aire</p>
+                    </div>
+                    <div class="bg-black bg-opacity-50 p-4 rounded-lg border border-red-500">
+                        <div class="text-3xl font-bold text-red-400 mb-1">1.5°C</div>
+                        <p class="text-gray-300 text-sm">Aumento crítico de temperatura que debemos evitar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Script para el menú móvil -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('block');
+                
+                // Animación de icono
+                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                
+                // Cambiar el icono
+                const menuIcon = mobileMenuButton.querySelector('svg');
+                if (isExpanded) {
+                    menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+                } else {
+                    menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+                }
+            });
+            
+            // Cerrar menú al hacer clic en un enlace
+            const navLinks = mobileMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('block');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenuButton.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+                });
+            });
+            
+            // Cerrar menú al hacer clic fuera de él
+            document.addEventListener('click', function(event) {
+                if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('block');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenuButton.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+                }
+            });
+        });
+    </script>
+    
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Script principal optimizado -->
+    <script src="js/scripts.js"></script>
+    <script src="js/cover-page.js" defer></script>
+    <script src="scripts/fix-profile-images.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.AOS) {
+          AOS.init({ once: false, mirror: false });
+          setTimeout(() => { AOS.refreshHard && AOS.refreshHard(); }, 500);
+        } else {
+          console.warn('AOS no está disponible');
+        }
+      });
+    </script>
+</body>
+</html>

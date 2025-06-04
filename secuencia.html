@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secuencia Didáctica del proyecto educativo Explorando Nuestro Entorno">
+    <title>Secuencia Didáctica | Explorando Nuestro Entorno</title>
+    <!-- Precargar recursos críticos -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuentes web modernas -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Usar solo la versión CDN de Tailwind CSS para evitar problemas de procesamiento -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <!-- Añadir Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Estilos consolidados -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Estilos específicos para esta página que no están en el CSS consolidado -->
+    <style>
+        /* Estilos personalizados para la página de secuencia si son necesarios */
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navegación fija superior con scroll-spy -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-md z-50 transition-all duration-300">
+        <div class="max-w-2x2 mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo y nombre -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="assets/images/logoproyecto.png" alt="Logo del Proyecto" class="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-105" />
+                    <span class="text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Explorando Nuestro Entorno</span>
+                </a>
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex items-center h-full">
+                    <ul class="flex h-full">
+                        <li class="nav-item"><a href="index.html" class="nav-link active">Portada</a></li>
+                        <li class="nav-item"><a href="datos.html" class="nav-link">Datos</a></li>
+                        <li class="nav-item"><a href="situacion.html" class="nav-link">Situación</a></li>
+                        <li class="nav-item"><a href="competencias.html" class="nav-link">Competencias</a></li>
+                        <li class="nav-item"><a href="contenidos.html" class="nav-link">Contenidos</a></li>
+                        <li class="nav-item"><a href="indicadores.html" class="nav-link">Indicadores</a></li>
+                        <li class="nav-item"><a href="secuencia.html" class="nav-link">Secuencia</a></li>
+                        <li class="nav-item"><a href="evaluacion.html" class="nav-link">Evaluación</a></li>
+                        <li class="nav-item"><a href="anexos.html" class="nav-link">Anexos</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Botón menú móvil -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 transition-colors">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <span class="sr-only">Abrir menú principal</span>
+                </button>
+            </div>
+            
+            <!-- Menú móvil (oculto por defecto) -->
+            <div id="mobile-menu" class="md:hidden hidden transition-all duration-300 ease-in-out">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg">
+                    <a href="index.html" class="nav-link active block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-home w-5 text-center"></i>
+                        <span>Portada</span>
+                    </a>
+                    <a href="datos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-database w-5 text-center"></i>
+                        <span>Datos</span>
+                    </a>
+                    <a href="situacion.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-map-marked-alt w-5 text-center"></i>
+                        <span>Situación</span>
+                    </a>
+                    <a href="competencias.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-tasks w-5 text-center"></i>
+                        <span>Competencias</span>
+                    </a>
+                    <a href="contenidos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-book w-5 text-center"></i>
+                        <span>Contenidos</span>
+                    </a>
+                    <a href="indicadores.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-chart-line w-5 text-center"></i>
+                        <span>Indicadores</span>
+                    </a>
+                    <a href="secuencia.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-project-diagram w-5 text-center"></i>
+                        <span>Secuencia</span>
+                    </a>
+                    <a href="evaluacion.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-clipboard-check w-5 text-center"></i>
+                        <span>Evaluación</span>
+                    </a>
+                    <a href="anexos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-paperclip w-5 text-center"></i>
+                        <span>Anexos</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20 min-h-screen">
+        <!-- Secuencia didáctica -->
+        <section id="secuencia" class="py-12 bg-gradient-to-b from-indigo-50 to-white">
+            <div class="max-w-5xl mx-auto px-4">
+                <div data-aos="fade-down" data-aos-duration="800" class="mb-8 text-center">
+                    <h1 class="text-3xl font-bold text-indigo-800 mb-2">Secuencia Didáctica</h1>
+                    <div class="w-20 h-1 bg-indigo-500 mx-auto"></div>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Diseño instruccional basado en el modelo de comprensión por diseño (Understanding by Design).</p>
+                </div>
+                
+                <!-- Tabs para las fases -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+                    <div class="tabs-container">
+                        <div class="tabs flex border-b">
+                            <button class="tablink flex-1 py-4 px-6 font-semibold text-center border-b-2 border-indigo-600 bg-indigo-50 text-indigo-800 active transition-all duration-300 transform hover:scale-105" data-tab="fase1">
+                                <i class="fas fa-bullseye mr-2"></i> Fase 1: Resultados
+                            </button>
+                            <button class="tablink flex-1 py-4 px-6 font-semibold text-center border-b-2 border-transparent hover:bg-indigo-50 hover:text-indigo-600 transition-all duration-300 transform hover:scale-105" data-tab="fase2">
+                                <i class="fas fa-clipboard-check mr-2"></i> Fase 2: Evidencias
+                            </button>
+                            <button class="tablink flex-1 py-4 px-6 font-semibold text-center border-b-2 border-transparent hover:bg-indigo-50 hover:text-indigo-600 transition-all duration-300 transform hover:scale-105" data-tab="fase3">
+                                <i class="fas fa-chalkboard-teacher mr-2"></i> Fase 3: Planificación
+                            </button>
+                        </div>
+                    
+                    <!-- Contenido de las tabs -->
+                    <div class="p-6">
+                        <!-- Fase 1: Resultados Deseados -->
+                        <div class="tabcontent" id="fase1">
+                            <div data-aos="fade-up" class="mb-4">
+                                <h3 class="text-xl font-semibold mb-4 text-indigo-700 flex items-center">
+                                    <i class="fas fa-star text-amber-500 mr-2"></i>
+                                    Resultados Esperados
+                                </h3>
+                                <p class="mb-4 text-gray-700">Los estudiantes al finalizar esta unidad serán capaces de:</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                                    <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100 flex items-start gap-3 transform transition hover:scale-105">
+                                        <div class="bg-indigo-100 rounded-full p-2 mt-1">
+                                            <i class="fas fa-link text-indigo-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold">Comprensión de Conexiones</h4>
+                                            <p class="text-sm">Comprender la conexión entre las acciones humanas, la contaminación y la salud.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100 flex items-start gap-3 transform transition hover:scale-105">
+                                        <div class="bg-indigo-100 rounded-full p-2 mt-1">
+                                            <i class="fas fa-search text-indigo-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold">Identificación de Problemas</h4>
+                                            <p class="text-sm">Identificar problemas ambientales locales y sus posibles efectos en la salud.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100 flex items-start gap-3 transform transition hover:scale-105">
+                                        <div class="bg-indigo-100 rounded-full p-2 mt-1">
+                                            <i class="fas fa-seedling text-indigo-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold">Promoción de Hábitos</h4>
+                                            <p class="text-sm">Promover hábitos saludables y sostenibles en su vida y entorno.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100 flex items-start gap-3 transform transition hover:scale-105">
+                                        <div class="bg-indigo-100 rounded-full p-2 mt-1">
+                                            <i class="fas fa-comments text-indigo-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold">Comunicación Efectiva</h4>
+                                            <p class="text-sm">Comunicar sus aprendizajes de manera efectiva.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Fase 2: Evidencia Aceptable -->
+                        <div class="tabcontent hidden" id="fase2">
+                            <div data-aos="fade-up" class="mb-4">
+                                <h3 class="text-xl font-semibold mb-4 text-indigo-700 flex items-center">
+                                    <i class="fas fa-tasks text-amber-500 mr-2"></i>
+                                    Evidencias de Aprendizaje
+                                </h3>
+                                <p class="mb-4 text-gray-700">Para demostrar que han alcanzado los resultados deseados, los estudiantes realizarán las siguientes actividades de evaluación:</p>
+                                
+                                <div class="space-y-6 mt-6">
+                                    <div class="bg-white p-5 rounded-lg border border-indigo-200 shadow-sm">
+                                        <div class="flex items-center gap-4 mb-3">
+                                            <div class="bg-indigo-100 p-3 rounded-full">
+                                                <i class="fas fa-file-alt text-indigo-600 text-xl"></i>
+                                            </div>
+                                            <h4 class="text-lg font-semibold">Análisis de Casos</h4>
+                                        </div>
+                                        <p class="text-gray-700">Se presentarán escenarios de contaminación ambiental local (acumulación de basura) y los estudiantes deberán identificar los posibles efectos en la salud de las personas que viven en esas áreas, justificando sus respuestas con información investigada.</p>
+                                        <div class="mt-3 flex items-center text-sm text-indigo-600">
+                                            <i class="fas fa-users mr-2"></i>
+                                            <span>Individual o grupal</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-white p-5 rounded-lg border border-indigo-200 shadow-sm">
+                                        <div class="flex items-center gap-4 mb-3">
+                                            <div class="bg-indigo-100 p-3 rounded-full">
+                                                <i class="fas fa-project-diagram text-indigo-600 text-xl"></i>
+                                            </div>
+                                            <h4 class="text-lg font-semibold">Organizador Gráfico Explicativo</h4>
+                                        </div>
+                                        <p class="text-gray-700">Los estudiantes, individualmente o en grupos pequeños, crearán un organizador gráfico (mapa mental) que muestre la relación entre un problema ambiental específico de su entorno y sus posibles consecuencias para la salud. Deberán explicar su organizador gráfico a la clase.</p>
+                                        <div class="mt-3 flex items-center text-sm text-indigo-600">
+                                            <i class="fas fa-user-friends mr-2"></i>
+                                            <span>Individual o en parejas</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-white p-5 rounded-lg border border-indigo-200 shadow-sm">
+                                        <div class="flex items-center gap-4 mb-3">
+                                            <div class="bg-indigo-100 p-3 rounded-full">
+                                                <i class="fas fa-heart text-indigo-600 text-xl"></i>
+                                            </div>
+                                            <h4 class="text-lg font-semibold">Reflexión Personal</h4>
+                                        </div>
+                                        <p class="text-gray-700">Se comprometerán a una acción personal relacionada con el medio ambiente y su salud. Deberán explicar brevemente su elección y compartirla con la clase, promoviendo la reflexión y la acción.</p>
+                                        <div class="mt-3 flex items-center text-sm text-indigo-600">
+                                            <i class="fas fa-user mr-2"></i>
+                                            <span>Individual</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Fase 3: Planificación e Instrucción -->
+                        <div class="tabcontent hidden" id="fase3">
+                            <div data-aos="fade-up" class="mb-4">
+                                <h3 class="text-xl font-semibold mb-4 text-indigo-700 flex items-center">
+                                    <i class="fas fa-calendar-alt text-amber-500 mr-2"></i>
+                                    Planificación de la Clase
+                                </h3>
+                                
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-left mt-6 border-collapse">
+                                        <thead>
+                                            <tr class="bg-indigo-100">
+                                                <th class="p-4 border border-indigo-200 rounded-tl-lg">Momento</th>
+                                                <th class="p-4 border border-indigo-200">Descripción</th>
+                                                <th class="p-4 border border-indigo-200 rounded-tr-lg">Tiempo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="hover:bg-indigo-50 transition">
+                                                <td class="p-4 border border-indigo-200 font-semibold">
+                                                    <div class="flex items-center gap-2">
+                                                        <i class="fas fa-play-circle text-green-600"></i>
+                                                        Inicio
+                                                    </div>
+                                                </td>
+                                                <td class="p-4 border border-indigo-200">
+                                                    <p>Discusión guiada sobre la situación de aprendizaje:</p>
+                                                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                                                        <li>¿Qué han observado sobre la basura y la contaminación en su entorno?</li>
+                                                        <li>¿Cómo creen que esto podría afectar su salud?</li>
+                                                        <li>Lluvia de ideas y registro en la pizarra.</li>
+                                                    </ul>
+                                                </td>
+                                                <td class="p-4 border border-indigo-200 text-center">
+                                                    <span class="bg-green-100 text-green-800 py-1 px-3 rounded-full font-medium">15 min</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="hover:bg-indigo-50 transition">
+                                                <td class="p-4 border border-indigo-200 font-semibold">
+                                                    <div class="flex items-center gap-2">
+                                                        <i class="fas fa-cogs text-blue-600"></i>
+                                                        Desarrollo
+                                                    </div>
+                                                </td>
+                                                <td class="p-4 border border-indigo-200">
+                                                    <p>Actividades de investigación y creación:</p>
+                                                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                                                        <li>Investigan en grupos pequeños sobre diferentes tipos de contaminación (agua, aire, suelo) y su efecto en la salud y el entorno utilizando recursos proporcionados (textos cortos).</li>
+                                                        <li>Elaboran un mapa mental colectivo sobre las fuentes de contaminación identificadas en su entorno, posibles efectos generales y medidas de acción.</li>
+                                                        <li>Realizan exposiciones de 5 minutos con los temas anteriores de contaminación, mediante el lenguaje oral, y con el objetivo de que digan sus hallazgos al resto de la clase.</li>
+                                                    </ul>
+                                                </td>
+                                                <td class="p-4 border border-indigo-200 text-center">
+                                                    <span class="bg-blue-100 text-blue-800 py-1 px-3 rounded-full font-medium">60 min</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="hover:bg-indigo-50 transition">
+                                                <td class="p-4 border border-indigo-200 font-semibold rounded-bl-lg">
+                                                    <div class="flex items-center gap-2">
+                                                        <i class="fas fa-flag-checkered text-amber-600"></i>
+                                                        Cierre
+                                                    </div>
+                                                </td>
+                                                <td class="p-4 border border-indigo-200">
+                                                    <p>Reflexión y compromiso:</p>
+                                                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                                                        <li>Para finalizar, los estudiantes piensan en una pequeña acción que pueden comprometerse a realizar en la semana para mejorar su propio bienestar.</li>
+                                                        <li>Comparten su compromiso con el resto de la clase.</li>
+                                                        <li>El docente realiza una síntesis de los aprendizajes clave.</li>
+                                                    </ul>
+                                                </td>
+                                                <td class="p-4 border border-indigo-200 text-center rounded-br-lg">
+                                                    <span class="bg-amber-100 text-amber-800 py-1 px-3 rounded-full font-medium">15 min</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <!-- Recursos necesarios -->
+                                <div class="mt-8 bg-indigo-50 p-5 rounded-lg">
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2">
+                                        <i class="fas fa-book text-indigo-600"></i>
+                                        Recursos Necesarios
+                                    </h4>
+                                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                        <li class="flex items-center gap-2">
+                                            <i class="fas fa-check text-green-500"></i>
+                                            Textos informativos sobre contaminación
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i class="fas fa-check text-green-500"></i>
+                                            Materiales para elaborar mapas mentales
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i class="fas fa-check text-green-500"></i>
+                                            Imágenes de problemas ambientales
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i class="fas fa-check text-green-500"></i>
+                                            Tarjetas para compromisos personales
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diagrama del proceso de diseño interactivo -->
+                <div data-aos="zoom-in" data-aos-delay="300" class="bg-white rounded-lg shadow-lg p-6 mb-8 proceso-diseno">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Proceso de Diseño Instruccional</h3>
+                    
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
+                        <div class="fase bg-indigo-100 p-4 rounded-lg shadow-sm w-full md:w-1/3 cursor-pointer hover:shadow-md transition-all" data-phase="1">
+                            <div class="bg-indigo-200 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-bullseye text-indigo-700"></i>
+                            </div>
+                            <h4 class="font-semibold">Fase 1</h4>
+                            <p class="text-sm">Identificar resultados deseados</p>
+                        </div>
+                        
+                        <div class="hidden md:block">
+                            <i class="fas fa-arrow-right text-gray-400 text-xl"></i>
+                        </div>
+                        <div class="md:hidden">
+                            <i class="fas fa-arrow-down text-gray-400 text-xl"></i>
+                        </div>
+                        
+                        <div class="fase bg-indigo-100 p-4 rounded-lg shadow-sm w-full md:w-1/3 cursor-pointer hover:shadow-md transition-all" data-phase="2">
+                            <div class="bg-indigo-200 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-clipboard-check text-indigo-700"></i>
+                            </div>
+                            <h4 class="font-semibold">Fase 2</h4>
+                            <p class="text-sm">Determinar evidencias aceptables</p>
+                        </div>
+                        
+                        <div class="hidden md:block">
+                            <i class="fas fa-arrow-right text-gray-400 text-xl"></i>
+                        </div>
+                        <div class="md:hidden">
+                            <i class="fas fa-arrow-down text-gray-400 text-xl"></i>
+                        </div>
+                        
+                        <div class="fase bg-indigo-100 p-4 rounded-lg shadow-sm w-full md:w-1/3 cursor-pointer hover:shadow-md transition-all" data-phase="3">
+                            <div class="bg-indigo-200 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-chalkboard-teacher text-indigo-700"></i>
+                            </div>
+                            <h4 class="font-semibold">Fase 3</h4>
+                            <p class="text-sm">Planificar experiencias de aprendizaje</p>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="400" class="mt-8 flex justify-center gap-4">
+                    <a href="indicadores.html" class="btn bg-gray-200 hover:bg-gray-300 text-gray-800">
+                        <i class="fas fa-arrow-left"></i> Anterior
+                    </a>
+                    <a href="evaluacion.html" class="btn bg-indigo-600 hover:bg-indigo-700 text-white">
+                        Siguiente <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+ <!-- Footer moderno mejorado -->
+<footer class="bg-gray-900 text-white pt-10 pb-6 mt-12 border-t border-gray-800">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full max-w-6xl mx-auto">
+            <!-- Logos e información -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4">        
+                <!-- Logos -->
+                <div class="flex items-center gap-4">
+                    <img src="assets/images/logorevistaisfodosu.png" alt="ISFODOSU" class="h-12 object-contain">
+                    <img src="assets/images/logocentroeducativo.png" alt="Colegio Didascalio" class="h-12 object-contain">
+                </div>
+                <!-- Información de la institución -->
+                <div class="text-left mt-2 md:mt-0">
+                    <p class="font-extrabold text-xl tracking-wide">Colegio Didascalio Santa María de la Altagracia</p>
+                    <p class="text-gray-400 text-sm mt-1">© 2025 | Desarrollado para fines educativos</p>
+                </div>
+            </div>
+            
+            <!-- Redes sociales -->
+            <div class="flex gap-3 mt-6 md:mt-0">
+                <a href="#" title="Facebook" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-blue-500 transition-colors duration-200">
+                        <i class="fab fa-facebook-f fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="Instagram" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-pink-500 transition-colors duration-200">
+                        <i class="fab fa-instagram fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="Twitter" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-blue-400 transition-colors duration-200">
+                        <i class="fab fa-twitter fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="WhatsApp" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-green-500 transition-colors duration-200">
+                        <i class="fab fa-whatsapp fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scripts -->
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Script principal optimizado -->
+    <script src="js/scripts.js"></script>
+    <!-- Script específico para la secuencia didáctica -->
+    <script src="js/sequence-animation.js"></script>
+</body>
+</html>

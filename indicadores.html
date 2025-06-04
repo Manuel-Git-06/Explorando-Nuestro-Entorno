@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Indicadores del proyecto educativo Explorando Nuestro Entorno">
+    <title>Indicadores | Explorando Nuestro Entorno</title>
+    <!-- Precargar recursos críticos -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuentes web modernas -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Usar solo la versión CDN de Tailwind CSS para evitar problemas de procesamiento -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <!-- Añadir Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Estilos consolidados -->
+    <link rel="stylesheet" href="css/styles.css">
+   
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navegación fija superior con scroll-spy -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-md z-50 transition-all duration-300">
+        <div class="max-w-2x2 mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo y nombre -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="assets/images/logoproyecto.png" alt="Logo del Proyecto" class="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-105" />
+                    <span class="text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Explorando Nuestro Entorno</span>
+                </a>
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex items-center h-full">
+                    <ul class="flex h-full">
+                        <li class="nav-item"><a href="index.html" class="nav-link active">Portada</a></li>
+                        <li class="nav-item"><a href="datos.html" class="nav-link">Datos</a></li>
+                        <li class="nav-item"><a href="situacion.html" class="nav-link">Situación</a></li>
+                        <li class="nav-item"><a href="competencias.html" class="nav-link">Competencias</a></li>
+                        <li class="nav-item"><a href="contenidos.html" class="nav-link">Contenidos</a></li>
+                        <li class="nav-item"><a href="indicadores.html" class="nav-link">Indicadores</a></li>
+                        <li class="nav-item"><a href="secuencia.html" class="nav-link">Secuencia</a></li>
+                        <li class="nav-item"><a href="evaluacion.html" class="nav-link">Evaluación</a></li>
+                        <li class="nav-item"><a href="anexos.html" class="nav-link">Anexos</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Botón menú móvil -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 transition-colors">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <span class="sr-only">Abrir menú principal</span>
+                </button>
+            </div>
+            
+            <!-- Menú móvil (oculto por defecto) -->
+            <div id="mobile-menu" class="md:hidden hidden transition-all duration-300 ease-in-out">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg">
+                    <a href="index.html" class="nav-link active block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-home w-5 text-center"></i>
+                        <span>Portada</span>
+                    </a>
+                    <a href="datos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-database w-5 text-center"></i>
+                        <span>Datos</span>
+                    </a>
+                    <a href="situacion.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-map-marked-alt w-5 text-center"></i>
+                        <span>Situación</span>
+                    </a>
+                    <a href="competencias.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-tasks w-5 text-center"></i>
+                        <span>Competencias</span>
+                    </a>
+                    <a href="contenidos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-book w-5 text-center"></i>
+                        <span>Contenidos</span>
+                    </a>
+                    <a href="indicadores.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-chart-line w-5 text-center"></i>
+                        <span>Indicadores</span>
+                    </a>
+                    <a href="secuencia.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-project-diagram w-5 text-center"></i>
+                        <span>Secuencia</span>
+                    </a>
+                    <a href="evaluacion.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-clipboard-check w-5 text-center"></i>
+                        <span>Evaluación</span>
+                    </a>
+                    <a href="anexos.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                        <i class="fas fa-paperclip w-5 text-center"></i>
+                        <span>Anexos</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20 min-h-screen">
+        <!-- Indicadores de logro -->
+        <section id="indicadores" class="py-12 bg-gradient-to-b from-amber-50 to-white">
+            <div class="max-w-5xl mx-auto px-4">
+                <div data-aos="fade-down" data-aos-duration="800" class="mb-8 text-center">
+                    <h1 class="text-3xl font-bold text-amber-800 mb-2">Indicadores de Logro</h1>
+                    <div class="w-20 h-1 bg-amber-500 mx-auto"></div>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Los siguientes indicadores permiten evaluar el progreso de los estudiantes en relación con los objetivos de aprendizaje.</p>
+                </div>
+                
+                <!-- Tarjetas de indicadores -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Indicador 1 -->
+                    <div data-aos="flip-left" data-aos-delay="100" class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <div class="h-3 bg-amber-500"></div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="bg-amber-100 p-3 rounded-full">
+                                    <img src="assets/icons/check.svg" class="h-8 w-8" alt="Logro"/>
+                                </div>
+                                <h3 class="font-semibold text-lg">Descripción de Impacto</h3>
+                            </div>
+                            
+                            <p class="text-gray-700">Describe cómo diferentes acciones humanas (disposición de residuos, emisiones, uso de recursos) pueden contaminar el agua, el aire y el suelo, afectando la salud de las personas.</p>
+                            
+                            <div class="mt-4 flex items-center text-amber-600">
+                                <i class="fas fa-clipboard-check mr-2"></i>
+                                <span class="text-sm font-medium">Nivel: Comprensión</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Indicador 2 -->
+                    <div data-aos="flip-left" data-aos-delay="200" class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <div class="h-3 bg-amber-500"></div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="bg-amber-100 p-3 rounded-full">
+                                    <img src="assets/icons/check.svg" class="h-8 w-8" alt="Logro"/>
+                                </div>
+                                <h3 class="font-semibold text-lg">Identificación de Enfermedades</h3>
+                            </div>
+                            
+                            <p class="text-gray-700">Identifica al menos tres enfermedades que pueden estar relacionadas con la contaminación ambiental presente en su entorno.</p>
+                            
+                            <div class="mt-4 flex items-center text-amber-600">
+                                <i class="fas fa-clipboard-check mr-2"></i>
+                                <span class="text-sm font-medium">Nivel: Conocimiento</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Indicador 3 -->
+                    <div data-aos="flip-left" data-aos-delay="300" class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <div class="h-3 bg-amber-500"></div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="bg-amber-100 p-3 rounded-full">
+                                    <img src="assets/icons/check.svg" class="h-8 w-8" alt="Logro"/>
+                                </div>
+                                <h3 class="font-semibold text-lg">Explicación de Prácticas</h3>
+                            </div>
+                            
+                            <p class="text-gray-700">Explica la importancia de prácticas adecuadas de higiene personal y del entorno para prevenir enfermedades.</p>
+                            
+                            <div class="mt-4 flex items-center text-amber-600">
+                                <i class="fas fa-clipboard-check mr-2"></i>
+                                <span class="text-sm font-medium">Nivel: Comprensión</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Indicador 4 -->
+                    <div data-aos="flip-left" data-aos-delay="400" class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <div class="h-3 bg-amber-500"></div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="bg-amber-100 p-3 rounded-full">
+                                    <img src="assets/icons/check.svg" class="h-8 w-8" alt="Logro"/>
+                                </div>
+                                <h3 class="font-semibold text-lg">Participación Activa</h3>
+                            </div>
+                            
+                            <p class="text-gray-700">Participa activamente en la propuesta de al menos una acción para mejorar la gestión de residuos o promover hábitos saludables en su escuela o comunidad.</p>
+                            
+                            <div class="mt-4 flex items-center text-amber-600">
+                                <i class="fas fa-clipboard-check mr-2"></i>
+                                <span class="text-sm font-medium">Nivel: Aplicación</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Indicador 5 -->
+                    <div data-aos="flip-left" data-aos-delay="500" class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1 md:col-span-2 lg:col-span-1">
+                        <div class="h-3 bg-amber-500"></div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="bg-amber-100 p-3 rounded-full">
+                                    <img src="assets/icons/check.svg" class="h-8 w-8" alt="Logro"/>
+                                </div>
+                                <h3 class="font-semibold text-lg">Comunicación Efectiva</h3>
+                            </div>
+                            
+                            <p class="text-gray-700">Comunica de forma clara y utilizando un organizador gráfico la relación entre un problema ambiental local y sus posibles efectos en la salud.</p>
+                            
+                            <div class="mt-4 flex items-center text-amber-600">
+                                <i class="fas fa-clipboard-check mr-2"></i>
+                                <span class="text-sm font-medium">Nivel: Síntesis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Taxonomía de Bloom -->
+                <div data-aos="fade-up" data-aos-delay="600" class="mt-12 bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Niveles de Aprendizaje (Taxonomía de Bloom)</h3>
+                    
+                    <div class="flex flex-wrap justify-center gap-5 md:gap-6 lg:gap-8 mt-4">
+                        <div class="bloom-card bg-red-100 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                            <div class="bloom-circle bg-red-200">1</div>
+                            <h4>Conocimiento</h4>
+                            <p>Recordar información</p>
+                        </div>
+                        <div class="bloom-card bg-orange-100 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                            <div class="bloom-circle bg-orange-200">2</div>
+                            <h4>Comprensión</h4>
+                            <p>Entender significados</p>
+                        </div>
+                        <div class="bloom-card bg-yellow-100 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                            <div class="bloom-circle bg-yellow-200">3</div>
+                            <h4>Aplicación</h4>
+                            <p>Usar conocimientos</p>
+                        </div>
+                        <div class="bloom-card bg-green-100 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                            <div class="bloom-circle bg-green-200">4</div>
+                            <h4>Análisis</h4>
+                            <p>Examinar información</p>
+                        </div>
+                        <div class="bloom-card bg-blue-100 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                            <div class="bloom-circle bg-blue-200">5</div>
+                            <h4>Síntesis</h4>
+                            <p>Crear algo nuevo</p>
+                        </div>
+                        <div class="bloom-card bg-purple-100 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                            <div class="bloom-circle bg-purple-200">6</div>
+                            <h4>Evaluación</h4>
+                            <p>Juzgar valor</p>
+                        </div>
+                    </div>
+                    <style>
+                        .bloom-card {
+                            width: 8.8rem;
+                            min-width: 120px;
+                            max-width: 140px;
+                            border-radius: 1rem;
+                            padding: 1.2rem 0.5rem 1rem 0.5rem;
+                            margin-bottom: 0.5rem;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            box-shadow: 0 1px 8px 0 rgba(0,0,0,0.04);
+                        }
+                        .bloom-card h4 {
+                            font-size: 1.1rem;
+                            font-weight: 700;
+                            margin: 0.5rem 0 0.2rem 0;
+                            text-align: center;
+                        }
+                        .bloom-card p {
+                            font-size: 0.85rem;
+                            color: #444;
+                            margin: 0;
+                            text-align: center;
+                        }
+                        .bloom-circle {
+                            width: 2.5rem;
+                            height: 2.5rem;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: 700;
+                            font-size: 1.35rem;
+                            margin-bottom: 0.4rem;
+                            box-shadow: 0 2px 6px 0 rgba(0,0,0,0.07);
+                        }
+                        @media (max-width: 600px) {
+                            .bloom-card {
+                                width: 100%;
+                                min-width: 100px;
+                                max-width: 100%;
+                                padding: 1rem 0.3rem 0.8rem 0.3rem;
+                            }
+                        }
+                    </style>
+                </div>
+                
+
+                <div data-aos="fade-up" data-aos-delay="700" class="mt-8 flex justify-center gap-4">
+                    <a href="contenidos.html" class="btn bg-gray-200 hover:bg-gray-300 text-gray-800">
+                        <i class="fas fa-arrow-left"></i> Anterior
+                    </a>
+                    <a href="secuencia.html" class="btn bg-secondary-600 hover:bg-secondary-700 text-white">
+                        Siguiente <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+
+            </div>
+        </section>
+    </main>
+
+ <!-- Footer moderno mejorado -->
+<footer class="bg-gray-900 text-white pt-10 pb-6 mt-12 border-t border-gray-800">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full max-w-6xl mx-auto">
+            <!-- Logos e información -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4">        
+                <!-- Logos -->
+                <div class="flex items-center gap-4">
+                    <img src="assets/images/logorevistaisfodosu.png" alt="ISFODOSU" class="h-12 object-contain">
+                    <img src="assets/images/logocentroeducativo.png" alt="Colegio Didascalio" class="h-12 object-contain">
+                </div>
+                <!-- Información de la institución -->
+                <div class="text-left mt-2 md:mt-0">
+                    <p class="font-extrabold text-xl tracking-wide">Colegio Didascalio Santa María de la Altagracia</p>
+                    <p class="text-gray-400 text-sm mt-1">© 2025 | Desarrollado para fines educativos</p>
+                </div>
+            </div>
+            
+            <!-- Redes sociales -->
+            <div class="flex gap-3 mt-6 md:mt-0">
+                <a href="#" title="Facebook" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-blue-500 transition-colors duration-200">
+                        <i class="fab fa-facebook-f fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="Instagram" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-pink-500 transition-colors duration-200">
+                        <i class="fab fa-instagram fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="Twitter" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-blue-400 transition-colors duration-200">
+                        <i class="fab fa-twitter fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+                <a href="#" title="WhatsApp" class="group">
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 group-hover:bg-green-500 transition-colors duration-200">
+                        <i class="fab fa-whatsapp fa-lg group-hover:text-white"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- Scripts -->
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Script principal optimizado -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
