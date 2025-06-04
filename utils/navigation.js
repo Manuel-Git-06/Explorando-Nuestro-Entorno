@@ -50,7 +50,7 @@ export function setupScrollSpy(navSelector = '#navbar', linkSelector = '.nav-lin
  * @param {string} navbarSelector - Selector para el elemento de navegación
  * @param {string} expandedClass - Clase CSS para marcar el menú expandido
  */
-export function setupMobileMenu(buttonSelector = '.mobile-menu-btn', navbarSelector = '#navbar', expandedClass = 'expanded') {
+export function setupMobileMenu(buttonSelector = '#mobile-menu-button', navbarSelector = '#navbar', expandedClass = 'expanded') {
     const mobileMenuBtn = document.querySelector(buttonSelector);
     const navbar = document.querySelector(navbarSelector);
     

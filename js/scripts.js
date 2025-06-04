@@ -51,14 +51,15 @@ const setupScrollSpy = () => {
 };
 
 const setupMobileMenu = () => {
-  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-  const navLinks = document.getElementById('nav-links');
-  
+  // Adaptar a la estructura de la plantilla actual
+  const mobileMenuBtn = document.getElementById('mobile-menu-button');
+  const navLinks = document.getElementById('mobile-menu');
+
   if (!mobileMenuBtn || !navLinks) return;
-  
+
   mobileMenuBtn.addEventListener('click', () => {
     navLinks.classList.toggle('hidden');
-    navLinks.classList.toggle('flex');
+    navLinks.classList.toggle('block');
   });
 };
 
