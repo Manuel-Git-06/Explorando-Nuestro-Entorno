@@ -230,7 +230,7 @@ a.btn:hover, a.btn:focus {
     }
     
     #mobile-menu {
-        display: block;
+        /* Dejar que las clases utilitarias controlen la visibilidad */
         padding: 0.5rem 0;
     }
 }
