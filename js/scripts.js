@@ -53,6 +53,7 @@ const setupScrollSpy = () => {
 const setupMobileMenu = () => {
   // Adaptar a la estructura de la plantilla actual
   const mobileMenuBtn = document.getElementById('mobile-menu-button');
+  // El menú móvil se carga desde components/navbar.html con el id "mobile-menu"
   const navLinks = document.getElementById('mobile-menu');
 
   if (!mobileMenuBtn || !navLinks) return;
