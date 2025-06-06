@@ -53,6 +53,7 @@ const setupScrollSpy = () => {
 const setupMobileMenu = () => {
   // Adaptar a la estructura de la plantilla actual
   const mobileMenuBtn = document.getElementById('mobile-menu-button');
+  // El menú móvil se carga desde components/navbar.html con el id "mobile-menu"
   const navLinks = document.getElementById('mobile-menu');
 
   if (!mobileMenuBtn || !navLinks) return;
@@ -290,9 +291,13 @@ const setupActiveNavLink = () => {
 };
 
 // Inicialización cuando el DOM está listo
-document.addEventListener('DOMContentLoaded', function () {
+let siteInitialized = false;
+
+const initializeSite = () => {
+  if (siteInitialized) return;
+  siteInitialized = true;
   try {
-    console.log('DOM cargado, inicializando componentes...');
+    console.log('Inicializando componentes...');
     
     // Configurar la transparencia de la barra de navegación
     setupNavbarTransparency();
@@ -370,4 +375,7 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error('Error en la recuperación de errores:', fallbackError);
     }
   }
-});
+};
+
+document.addEventListener('DOMContentLoaded', initializeSite);
+document.addEventListener('navbarLoaded', initializeSite);
