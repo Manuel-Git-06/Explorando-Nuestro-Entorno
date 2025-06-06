@@ -291,9 +291,13 @@ const setupActiveNavLink = () => {
 };
 
 // Inicialización cuando el DOM está listo
-document.addEventListener('DOMContentLoaded', function () {
+let siteInitialized = false;
+
+const initializeSite = () => {
+  if (siteInitialized) return;
+  siteInitialized = true;
   try {
-    console.log('DOM cargado, inicializando componentes...');
+    console.log('Inicializando componentes...');
     
     // Configurar la transparencia de la barra de navegación
     setupNavbarTransparency();
@@ -371,4 +375,7 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error('Error en la recuperación de errores:', fallbackError);
     }
   }
-});
+};
+
+document.addEventListener('DOMContentLoaded', initializeSite);
+document.addEventListener('navbarLoaded', initializeSite);
